@@ -1,8 +1,15 @@
-import * as React from "react";
-import { Home } from "./components/Home/Home";
+import * as React from "react"
+import { Navbar } from "./components/navbar"
+import { ListDisplay } from "./components/ListDisplay"
+import { ListStore } from "./ListStore"
 
-export class App extends React.Component {
-  render() {
-    return <Home />;
-  }
+function App() {
+  const store = new ListStore()
+  return (
+      <div>
+        <Navbar store={store}/>
+        <ListDisplay store={store}/>
+      </div>
+  );
 }
+export default App;

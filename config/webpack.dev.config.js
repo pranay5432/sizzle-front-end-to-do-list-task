@@ -35,6 +35,10 @@ const config = {
         test: /\.(png|jpe?g|gif|svg)$/,
         type: "asset/resource",
       },
+      {
+        test: /\.(sass|less|css)$/,
+        use: ["style-loader", "css-loader", 'sass-loader'],
+      }
     ],
   },
   devServer: {
@@ -51,7 +55,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "src/index.html",
-      title: "React Mobx Starter",
+      title: "Sizzle Test",
       inject: "body",
     }),
   ],
