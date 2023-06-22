@@ -11,7 +11,7 @@ export const Navbar = observer(function(props: NavbarProps) {
   const [value, setValue] = useState("")
   const prepareAddList = (e: any) => {
       e.preventDefault()
-      props.store.addList(value)
+      props.store.addItem(value)
       setValue("")
   }
 

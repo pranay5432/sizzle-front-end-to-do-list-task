@@ -4,7 +4,7 @@ import { ListDisplay } from "./components/ListDisplay"
 import { ListStore } from "./ListStore"
 
 function App() {
-  const store = new ListStore()
+  const store: ListStore = new ListStore()
   return (
       <div>
         <Navbar store={store}/>

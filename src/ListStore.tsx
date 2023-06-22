@@ -1,31 +1,15 @@
-import { observable, action, computed } from "mobx"
-import { v4 as uuidv4 } from "uuid"
-
-export class List {
-  @observable value
-  @observable done: any
-  private id: any;
-
-  constructor (value: any) {
-    this.id = uuidv4()
-    this.value = value
-  }
-}
+import {observable, action, makeAutoObservable} from "mobx"
+import { ListItem } from "./components/ListItem";
 
 export class ListStore {
-  @observable lists: any[] = []
-  @observable filter = ""
 
-  @action addList = (value: any) => {
-    this.lists.push(new List(value))
+  list: ListItem[] = []
+
+  @action addItem = (value: string) => {
+    this.list.push(new ListItem(value))
   }
  
-  @action deleteList = (list: any) => {
-    this.lists = this.lists.filter(t => t !== list)
-  }
-
-  @computed get filteredLists () {
-    const matchCase = new RegExp(this.filter, "i")
-    return this.lists.filter(list=> !this.filter || matchCase.test(list.value))
+  @action deleteItem = (item: ListItem) => {
+    this.list = this.list.filter(t => t !== item)
   }
 }
