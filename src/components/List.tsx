@@ -2,6 +2,7 @@ import * as React from 'react'
 import { observer } from 'mobx-react'
 
 function List(props: any) {
+  //Added a pin putton which on click calls the moveListToFront function.
   return (
     <div className="card">
       <div className="card-body">
@@ -9,6 +10,7 @@ function List(props: any) {
             <p className={`title ${props.list.done ? "text-secondary" : ""}`}>{props.list.value}</p>
             <div>
             <button onClick={props.deleteList.bind(this, props.list)} className="btn btn-danger font-weight-bold py-2 px-5 ml-2">Delete</button>
+            <button onClick={props.moveListToFront.bind(this, props.list)} className="btn btn-danger font-weight-bold py-2 px-5 ml-2">Pin</button>
             </div>
           </div>
       </div>

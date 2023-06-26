@@ -9,13 +9,13 @@ interface ListDisplayProps {
 }
 
 export const ListDisplay = observer(function(props: ListDisplayProps) {
-  const { deleteList, filteredLists } = props.store
+  const { deleteList, moveListToFront, filteredLists } = props.store
 
   return (
     <div>
         <div className="container">
           {filteredLists.map((list) => (
-            <List key={list.id} list={list}  deleteList={deleteList} />
+            <List key={list.id} list={list}  deleteList={deleteList} moveListToFront={moveListToFront}/>
           ))}
         </div>
     </div>
